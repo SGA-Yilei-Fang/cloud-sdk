@@ -8,12 +8,12 @@ import (
 	"github.com/SGA-Bicheng-Zhang/cloud-sdk/dao"
 )
 
+var _ api.AliyunServer = (*AliyunService)(nil)
+
 type AliyunService struct {
 	api.UnimplementedAliyunServer
 	dao *dao.AliyunDao
 }
-
-var _ api.AliyunServer = (*AliyunService)(nil)
 
 func NewAliyunService(d *dao.AliyunDao) *AliyunService {
 	return &AliyunService{dao: d}

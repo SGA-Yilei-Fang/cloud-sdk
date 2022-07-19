@@ -8,12 +8,12 @@ import (
 	"github.com/SGA-Bicheng-Zhang/cloud-sdk/dao"
 )
 
+var _ api.TencentCloudServer = (*TencentCloudService)(nil)
+
 type TencentCloudService struct {
 	api.UnimplementedTencentCloudServer
 	dao *dao.TencentCloudDao
 }
-
-var _ api.TencentCloudServer = (*TencentCloudService)(nil)
 
 func NewTencentCloudService(d *dao.TencentCloudDao) *TencentCloudService {
 	return &TencentCloudService{dao: d}

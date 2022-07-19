@@ -8,7 +8,7 @@ import (
 )
 
 // NewServer register grpc server.
-func NewServer() *grpc.Server {
+func NewServer(opt ...grpc.ServerOption) *grpc.Server {
 	// create new dao.
 	aliyunDao := dao.NewAliyunDao()
 	tencentCloudDao := dao.NewTencentCloudDao()
@@ -17,7 +17,7 @@ func NewServer() *grpc.Server {
 	aliyunSvc := service.NewAliyunService(aliyunDao)
 	tencentSvc := service.NewTencentCloudService(tencentCloudDao)
 
-	grpcServer := grpc.NewServer()
+	grpcServer := grpc.NewServer(opt...)
 
 	// register server here...
 	pb.RegisterAliyunServer(grpcServer, aliyunSvc)
