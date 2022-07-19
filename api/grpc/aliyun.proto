@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+// import "google/protobuf/empty.proto";
+
+package api;
+
+option go_package = "api/grpc;api";
+
+
+service Aliyun {
+    rpc SendMessage(AliyunSendMessageRequest) returns (AliyunSendMessageResponse);
+}
+
+message AliyunSendMessageRequest {
+    string phone = 1;
+}
+
+message AliyunSendMessageResponse {
+    int64 code = 1;
+    string message = 2;
+}

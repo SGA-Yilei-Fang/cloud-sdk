@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+// import "google/protobuf/empty.proto";
+
+package api;
+
+option go_package = "api/grpc;api";
+
+
+service TencentCloud {
+    rpc SendMessage(TencentSendMessageRequest) returns (TencentSendMessageResponse);
+}
+
+message TencentSendMessageRequest {
+    string phone = 1;
+}
+
+message TencentSendMessageResponse {
+    int64 code = 1;
+    string message = 2;
+}

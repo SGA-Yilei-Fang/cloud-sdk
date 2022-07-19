@@ -1,0 +1,4 @@
+.vscode
+.DS_Store
+
+cmd/cloud-sdk/cloud-sdk
