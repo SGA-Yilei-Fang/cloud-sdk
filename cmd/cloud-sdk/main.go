@@ -18,5 +18,4 @@ func main() {
 
 	server := server.NewServer()
 	server.Serve(listen)
-
 }
